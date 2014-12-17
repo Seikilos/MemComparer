@@ -52,7 +52,11 @@ namespace LISMemoryComparer
 
 				if (Count2 > Count1)
 				{
-					e.CellStyle.BackColor = Color.Red;
+				    e.CellStyle.BackColor = Color.Red;
+				}
+				else if(Count1 == Count2)
+				{
+                    e.CellStyle.BackColor = Color.DarkGray;
 				}
 				else
 				{

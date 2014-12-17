@@ -36,17 +36,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtSecondDump = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CountFactor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
             this.mT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeltaCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountFactor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSize1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSize2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.className2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -120,6 +121,7 @@
             this.txtFirstDump.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtFirstDump.Size = new System.Drawing.Size(483, 250);
             this.txtFirstDump.TabIndex = 0;
+            this.txtFirstDump.TextChanged += new System.EventHandler(this.txtSecondDump_TextChanged);
             // 
             // button2
             // 
@@ -157,6 +159,7 @@
             this.className1DataGridViewTextBoxColumn,
             this.count1DataGridViewTextBoxColumn,
             this.count2DataGridViewTextBoxColumn,
+            this.DeltaCount,
             this.CountFactor,
             this.totalSize1DataGridViewTextBoxColumn,
             this.totalSize2DataGridViewTextBoxColumn,
@@ -171,12 +174,15 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // CountFactor
+            // joinedMemoryDumpTableBindingSource
             // 
-            this.CountFactor.DataPropertyName = "CountFactor";
-            this.CountFactor.HeaderText = "CountFactor";
-            this.CountFactor.Name = "CountFactor";
-            this.CountFactor.ReadOnly = true;
+            this.joinedMemoryDumpTableBindingSource.DataMember = "JoinedMemoryDumpTable";
+            this.joinedMemoryDumpTableBindingSource.DataSource = this.memoryDumpDataSet;
+            // 
+            // memoryDumpDataSet
+            // 
+            this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
+            this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // mT1DataGridViewTextBoxColumn
             // 
@@ -205,6 +211,20 @@
             this.count2DataGridViewTextBoxColumn.HeaderText = "Count2";
             this.count2DataGridViewTextBoxColumn.Name = "count2DataGridViewTextBoxColumn";
             this.count2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DeltaCount
+            // 
+            this.DeltaCount.DataPropertyName = "DeltaCount";
+            this.DeltaCount.HeaderText = "Delta Count";
+            this.DeltaCount.Name = "DeltaCount";
+            this.DeltaCount.ReadOnly = true;
+            // 
+            // CountFactor
+            // 
+            this.CountFactor.DataPropertyName = "CountFactor";
+            this.CountFactor.HeaderText = "CountFactor";
+            this.CountFactor.Name = "CountFactor";
+            this.CountFactor.ReadOnly = true;
             // 
             // totalSize1DataGridViewTextBoxColumn
             // 
@@ -235,16 +255,6 @@
             this.className2DataGridViewTextBoxColumn.Name = "className2DataGridViewTextBoxColumn";
             this.className2DataGridViewTextBoxColumn.ReadOnly = true;
             this.className2DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // joinedMemoryDumpTableBindingSource
-            // 
-            this.joinedMemoryDumpTableBindingSource.DataMember = "JoinedMemoryDumpTable";
-            this.joinedMemoryDumpTableBindingSource.DataSource = this.memoryDumpDataSet;
-            // 
-            // memoryDumpDataSet
-            // 
-            this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
-            this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Form1
             // 
@@ -281,16 +291,17 @@
 		private System.Windows.Forms.BindingSource joinedMemoryDumpTableBindingSource;
 		private MemoryDumpDataSet memoryDumpDataSet;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn mT1DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn className1DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn count1DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn count2DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn CountFactor;
-		private System.Windows.Forms.DataGridViewTextBoxColumn totalSize1DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn totalSize2DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn mT2DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn className2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mT1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn className1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn count1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn count2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeltaCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountFactor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalSize1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalSize2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mT2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn className2DataGridViewTextBoxColumn;
 	}
 }
 

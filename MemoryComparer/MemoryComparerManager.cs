@@ -44,13 +44,13 @@ namespace LISMemoryComparer
                     ResultRow.Count1 = Row.Count;
                     ResultRow.MT1 = Row.MT;
                     ResultRow.TotalSize1 = Row.TotalSize;
-
+                    ResultRow.DeltaCount = ChildRow.Count - Row.Count;
                     ResultRow.ClassName2 = ChildRow.ClassName;
                     ResultRow.Count2 = ChildRow.Count;
                     ResultRow.MT2 = ChildRow.MT;
                     ResultRow.TotalSize2 = ChildRow.TotalSize;
 
-                    ResultRow.CountFactor = double.Parse(ResultRow.Count2) / double.Parse(ResultRow.Count1);
+                    ResultRow.CountFactor = (double)(ResultRow.Count2) / ResultRow.Count1;
 
                     Result.Rows.Add(ResultRow);
                 }
