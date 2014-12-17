@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Windows.Forms;
 
 namespace LISMemoryComparer
 {
@@ -11,6 +12,7 @@ namespace LISMemoryComparer
 
         public static MemoryDumpDataSet.MemoryDumpTableDataTable ConvertMemoryDump(String Name, String[] MemoryDumpLines)
         {
+            var errors = new List<string>();
             MemoryDumpDataSet.MemoryDumpTableDataTable Result = new MemoryDumpDataSet.MemoryDumpTableDataTable();
             Result.TableName = Name;
 
@@ -20,10 +22,29 @@ namespace LISMemoryComparer
                     continue;
 
                 MemoryDumpDataSet.MemoryDumpTableRow ResultLine = Result.NewMemoryDumpTableRow();
-                ConvertMemoryDumpLine(DumpLine, ResultLine);
+                try
+                {
+                    ConvertMemoryDumpLine(DumpLine, ResultLine);
+                }
+                catch (Exception e)
+                { 
+                    errors.Add(string.Format("Parsing line '{0}' failed with '{1}'", DumpLine, e.Message));
+                    continue;
+                }
                 Result.Rows.Add(ResultLine);
             }
 
+            if (errors.Count > 0)
+            {
+                var finalErrors = errors;
+                if (errors.Count > 100)
+                {
+                    MessageBox.Show("Too many errors generated, not all are shown");
+                    finalErrors = errors.Take(10).ToList();
+                }
+                // this violates some patterns
+                MessageBox.Show(string.Format("Errors in lines:{0}{1}", Environment.NewLine, string.Join(Environment.NewLine, finalErrors)));
+            }
             return Result;
         }
 

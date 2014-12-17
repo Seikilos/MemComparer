@@ -22,12 +22,18 @@ namespace LISMemoryComparer
 
 		private void txtSecondDump_TextChanged(object sender, EventArgs e)
 		{
+		    try
+		    {
+		        MemoryDumpDataSet.MemoryDumpTableDataTable FirstDump = MemoryComparerManager.ConvertMemoryDump("First", this.txtFirstDump.Lines);
+		        MemoryDumpDataSet.MemoryDumpTableDataTable SecondDump = MemoryComparerManager.ConvertMemoryDump("Second", this.txtSecondDump.Lines);
 
-			MemoryDumpDataSet.MemoryDumpTableDataTable FirstDump = MemoryComparerManager.ConvertMemoryDump("First", this.txtFirstDump.Lines);
-			MemoryDumpDataSet.MemoryDumpTableDataTable SecondDump = MemoryComparerManager.ConvertMemoryDump("Second", this.txtSecondDump.Lines);
-
-			Joined = MemoryComparerManager.Join(FirstDump, SecondDump);
-			joinedMemoryDumpTableBindingSource.DataSource = Joined;
+		        Joined = MemoryComparerManager.Join(FirstDump, SecondDump);
+		        joinedMemoryDumpTableBindingSource.DataSource = Joined;
+		    }
+		    catch (Exception exception)
+		    {
+		        MessageBox.Show(text: exception.Message, caption: "Error occurred");
+		    }
 		}
 
 		private void button1_Click(object sender, EventArgs e)
