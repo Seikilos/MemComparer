@@ -36,11 +36,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtSecondDump = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CountFactor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountFactor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSize1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSize2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,6 +113,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFirstDump.Location = new System.Drawing.Point(0, 35);
+            this.txtFirstDump.MaxLength = 0;
             this.txtFirstDump.Multiline = true;
             this.txtFirstDump.Name = "txtFirstDump";
             this.txtFirstDump.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -135,6 +136,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSecondDump.Location = new System.Drawing.Point(-1, 35);
+            this.txtSecondDump.MaxLength = 0;
             this.txtSecondDump.Multiline = true;
             this.txtSecondDump.Name = "txtSecondDump";
             this.txtSecondDump.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -167,6 +169,13 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
+            // CountFactor
+            // 
+            this.CountFactor.DataPropertyName = "CountFactor";
+            this.CountFactor.HeaderText = "CountFactor";
+            this.CountFactor.Name = "CountFactor";
+            this.CountFactor.ReadOnly = true;
+            // 
             // mT1DataGridViewTextBoxColumn
             // 
             this.mT1DataGridViewTextBoxColumn.DataPropertyName = "MT1";
@@ -194,13 +203,6 @@
             this.count2DataGridViewTextBoxColumn.HeaderText = "Count2";
             this.count2DataGridViewTextBoxColumn.Name = "count2DataGridViewTextBoxColumn";
             this.count2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // CountFactor
-            // 
-            this.CountFactor.DataPropertyName = "CountFactor";
-            this.CountFactor.HeaderText = "CountFactor";
-            this.CountFactor.Name = "CountFactor";
-            this.CountFactor.ReadOnly = true;
             // 
             // totalSize1DataGridViewTextBoxColumn
             // 
