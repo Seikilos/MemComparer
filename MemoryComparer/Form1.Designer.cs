@@ -36,8 +36,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtSecondDump = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
             this.mT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +46,8 @@
             this.totalSize2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.className2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -122,6 +122,7 @@
             this.txtFirstDump.Size = new System.Drawing.Size(483, 250);
             this.txtFirstDump.TabIndex = 0;
             this.txtFirstDump.TextChanged += new System.EventHandler(this.txtSecondDump_TextChanged);
+            this.txtFirstDump.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
             // 
             // button2
             // 
@@ -147,6 +148,7 @@
             this.txtSecondDump.Size = new System.Drawing.Size(423, 247);
             this.txtSecondDump.TabIndex = 1;
             this.txtSecondDump.TextChanged += new System.EventHandler(this.txtSecondDump_TextChanged);
+            this.txtSecondDump.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
             // 
             // dataGridView1
             // 
@@ -173,16 +175,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(912, 133);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // joinedMemoryDumpTableBindingSource
-            // 
-            this.joinedMemoryDumpTableBindingSource.DataMember = "JoinedMemoryDumpTable";
-            this.joinedMemoryDumpTableBindingSource.DataSource = this.memoryDumpDataSet;
-            // 
-            // memoryDumpDataSet
-            // 
-            this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
-            this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // mT1DataGridViewTextBoxColumn
             // 
@@ -255,6 +247,16 @@
             this.className2DataGridViewTextBoxColumn.Name = "className2DataGridViewTextBoxColumn";
             this.className2DataGridViewTextBoxColumn.ReadOnly = true;
             this.className2DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // joinedMemoryDumpTableBindingSource
+            // 
+            this.joinedMemoryDumpTableBindingSource.DataMember = "JoinedMemoryDumpTable";
+            this.joinedMemoryDumpTableBindingSource.DataSource = this.memoryDumpDataSet;
+            // 
+            // memoryDumpDataSet
+            // 
+            this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
+            this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Form1
             // 
