@@ -62,7 +62,12 @@ namespace LISMemoryComparer
         private static void ConvertMemoryDumpLine(string DumpLine, DataRow Row)
         {
             String[] Columns = SplitMemoryDumpLine(DumpLine);
-            
+
+            if (Columns == null)
+            {
+                return;
+            }
+
             for (int ColIndex = 0; ColIndex < Columns.Length; ColIndex++)
             {
                 String Column = Columns[ColIndex];
@@ -74,31 +79,29 @@ namespace LISMemoryComparer
         {
             // Split by whitespace, skip whitespace
 
-            var lines = DumpLine.Trim().Split(' ');
+            var parts = DumpLine.Trim().Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
 
-            var Result = new List<string>();
-        
-            foreach (var line in lines)
+            if (parts.Length < 4)
             {
-                if (string.IsNullOrEmpty(line) == false)
-                {
-                    // if Result has already 4, then merge line
-                    if (Result.Count == 4)
-                    {
-                        Result[3] += line;
-                    }
-                    else
-                    {
-
-                        Result.Add(line);
-                    }
-                }
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to split line '{0}' into four or more parts. Skipping", DumpLine));
+                return null;
             }
 
-            System.Diagnostics.Debug.WriteLine(DumpLine);
-            System.Diagnostics.Debug.Assert(Result.Count() == 4);
+            if (parts.Length == 4)
+            {
+                return parts;
+            }
 
-            return Result.ToArray();
+            // There are more than 4 entries, merge all entries from 3 with whitespace back
+            var sb = new StringBuilder(parts[3]);
+            foreach (var p in parts.Skip(4))
+            {
+                sb.Append(" "+p);
+            }
+
+           return new[] { parts[0], parts[1], parts[2], sb.ToString() };
+
+            
         }
 
     }
