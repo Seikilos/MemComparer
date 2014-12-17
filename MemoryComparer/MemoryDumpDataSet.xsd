@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MemoryDumpDataSet" targetNamespace="http://tempuri.org/MemoryDumpDataSet.xsd" xmlns:mstns="http://tempuri.org/MemoryDumpDataSet.xsd" xmlns="http://tempuri.org/MemoryDumpDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MemoryDumpDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MemoryDumpDataSet" msprop:Generator_UserDSName="MemoryDumpDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MemoryDumpTable" msprop:Generator_TableClassName="MemoryDumpTableDataTable" msprop:Generator_TableVarName="tableMemoryDumpTable" msprop:Generator_TablePropName="MemoryDumpTable" msprop:Generator_RowDeletingName="MemoryDumpTableRowDeleting" msprop:Generator_UserTableName="MemoryDumpTable" msprop:Generator_RowChangingName="MemoryDumpTableRowChanging" msprop:Generator_RowEvHandlerName="MemoryDumpTableRowChangeEventHandler" msprop:Generator_RowDeletedName="MemoryDumpTableRowDeleted" msprop:Generator_RowEvArgName="MemoryDumpTableRowChangeEvent" msprop:Generator_RowChangedName="MemoryDumpTableRowChanged" msprop:Generator_RowClassName="MemoryDumpTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MT" msprop:Generator_ColumnVarNameInTable="columnMT" msprop:Generator_ColumnPropNameInRow="MT" msprop:Generator_ColumnPropNameInTable="MTColumn" msprop:Generator_UserColumnName="MT" type="xs:string" minOccurs="0" />
+              <xs:element name="Count" msprop:Generator_ColumnVarNameInTable="columnCount" msprop:Generator_ColumnPropNameInRow="Count" msprop:Generator_ColumnPropNameInTable="CountColumn" msprop:Generator_UserColumnName="Count" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalSize" msprop:Generator_ColumnVarNameInTable="columnTotalSize" msprop:Generator_ColumnPropNameInRow="TotalSize" msprop:Generator_ColumnPropNameInTable="TotalSizeColumn" msprop:Generator_UserColumnName="TotalSize" type="xs:string" minOccurs="0" />
+              <xs:element name="ClassName" msprop:Generator_ColumnVarNameInTable="columnClassName" msprop:Generator_ColumnPropNameInRow="ClassName" msprop:Generator_ColumnPropNameInTable="ClassNameColumn" msprop:Generator_UserColumnName="ClassName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="JoinedMemoryDumpTable" msprop:Generator_TableClassName="JoinedMemoryDumpTableDataTable" msprop:Generator_TableVarName="tableJoinedMemoryDumpTable" msprop:Generator_TablePropName="JoinedMemoryDumpTable" msprop:Generator_RowDeletingName="JoinedMemoryDumpTableRowDeleting" msprop:Generator_UserTableName="JoinedMemoryDumpTable" msprop:Generator_RowChangingName="JoinedMemoryDumpTableRowChanging" msprop:Generator_RowEvHandlerName="JoinedMemoryDumpTableRowChangeEventHandler" msprop:Generator_RowDeletedName="JoinedMemoryDumpTableRowDeleted" msprop:Generator_RowEvArgName="JoinedMemoryDumpTableRowChangeEvent" msprop:Generator_RowChangedName="JoinedMemoryDumpTableRowChanged" msprop:Generator_RowClassName="JoinedMemoryDumpTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MT1" msdata:Caption="MT" msprop:Generator_ColumnVarNameInTable="columnMT1" msprop:Generator_ColumnPropNameInRow="MT1" msprop:Generator_ColumnPropNameInTable="MT1Column" msprop:Generator_UserColumnName="MT1" type="xs:string" minOccurs="0" />
+              <xs:element name="Count1" msdata:Caption="Count" msprop:Generator_ColumnVarNameInTable="columnCount1" msprop:Generator_ColumnPropNameInRow="Count1" msprop:Generator_ColumnPropNameInTable="Count1Column" msprop:Generator_UserColumnName="Count1" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalSize1" msdata:Caption="TotalSize" msprop:Generator_ColumnVarNameInTable="columnTotalSize1" msprop:Generator_ColumnPropNameInRow="TotalSize1" msprop:Generator_ColumnPropNameInTable="TotalSize1Column" msprop:Generator_UserColumnName="TotalSize1" type="xs:string" minOccurs="0" />
+              <xs:element name="ClassName1" msdata:Caption="ClassName" msprop:Generator_ColumnVarNameInTable="columnClassName1" msprop:Generator_ColumnPropNameInRow="ClassName1" msprop:Generator_ColumnPropNameInTable="ClassName1Column" msprop:Generator_UserColumnName="ClassName1" type="xs:string" minOccurs="0" />
+              <xs:element name="MT2" msdata:Caption="MT" msprop:Generator_ColumnVarNameInTable="columnMT2" msprop:Generator_ColumnPropNameInRow="MT2" msprop:Generator_ColumnPropNameInTable="MT2Column" msprop:Generator_UserColumnName="MT2" type="xs:string" minOccurs="0" />
+              <xs:element name="Count2" msdata:Caption="Count" msprop:Generator_ColumnVarNameInTable="columnCount2" msprop:Generator_ColumnPropNameInRow="Count2" msprop:Generator_ColumnPropNameInTable="Count2Column" msprop:Generator_UserColumnName="Count2" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalSize2" msdata:Caption="TotalSize" msprop:Generator_ColumnVarNameInTable="columnTotalSize2" msprop:Generator_ColumnPropNameInRow="TotalSize2" msprop:Generator_ColumnPropNameInTable="TotalSize2Column" msprop:Generator_UserColumnName="TotalSize2" type="xs:string" minOccurs="0" />
+              <xs:element name="ClassName2" msdata:Caption="ClassName" msprop:Generator_ColumnVarNameInTable="columnClassName2" msprop:Generator_ColumnPropNameInRow="ClassName2" msprop:Generator_ColumnPropNameInTable="ClassName2Column" msprop:Generator_UserColumnName="ClassName2" type="xs:string" minOccurs="0" />
+              <xs:element name="CountFactor" msprop:Generator_ColumnVarNameInTable="columnCountFactor" msprop:Generator_ColumnPropNameInRow="CountFactor" msprop:Generator_ColumnPropNameInTable="CountFactorColumn" msprop:Generator_UserColumnName="CountFactor" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
