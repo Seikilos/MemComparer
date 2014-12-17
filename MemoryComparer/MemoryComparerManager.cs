@@ -95,10 +95,7 @@ namespace LISMemoryComparer
                 }
             }
 
-
-
             System.Diagnostics.Debug.WriteLine(DumpLine);
-
             System.Diagnostics.Debug.Assert(Result.Count() == 4);
 
             return Result.ToArray();
