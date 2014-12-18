@@ -24,15 +24,15 @@ namespace LISMemoryComparer
         {
             try
             {
-                MemoryDumpDataSet.MemoryDumpTableDataTable FirstDump = MemoryComparerManager.ConvertMemoryDump("First", this.txtFirstDump.Lines);
-                MemoryDumpDataSet.MemoryDumpTableDataTable SecondDump = MemoryComparerManager.ConvertMemoryDump("Second", this.txtSecondDump.Lines);
+                MemoryDumpDataSet.MemoryDumpTableDataTable FirstDump = MemoryComparerManager.ConvertMemoryDump("First", txtFirstDump.Lines, textBoxFilter.Text);
+                MemoryDumpDataSet.MemoryDumpTableDataTable SecondDump = MemoryComparerManager.ConvertMemoryDump("Second", txtSecondDump.Lines, textBoxFilter.Text);
 
                 Joined = MemoryComparerManager.Join(FirstDump, SecondDump);
                 joinedMemoryDumpTableBindingSource.DataSource = Joined;
             }
             catch (Exception exception)
             {
-                MessageBox.Show(text: exception.Message, caption: "Error occurred");
+                MessageBox.Show(exception.Message, "Error occurred");
             }
         }
 
@@ -80,6 +80,12 @@ namespace LISMemoryComparer
                     ((TextBox)sender).SelectAll();
                 e.Handled = true;
             }
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            // Cause invalidation and re-compare
+            txtSecondDump_TextChanged(null, EventArgs.Empty);
         }
     }
 }

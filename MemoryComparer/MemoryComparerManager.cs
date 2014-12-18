@@ -10,7 +10,7 @@ namespace LISMemoryComparer
     public class MemoryComparerManager
     {
 
-        public static MemoryDumpDataSet.MemoryDumpTableDataTable ConvertMemoryDump(String Name, String[] MemoryDumpLines)
+        public static MemoryDumpDataSet.MemoryDumpTableDataTable ConvertMemoryDump(String Name, String[] MemoryDumpLines, string filter = null)
         {
             var errors = new List<string>();
             MemoryDumpDataSet.MemoryDumpTableDataTable Result = new MemoryDumpDataSet.MemoryDumpTableDataTable();
@@ -19,7 +19,17 @@ namespace LISMemoryComparer
             foreach (String DumpLine in MemoryDumpLines)
             {
                 if (string.IsNullOrEmpty(DumpLine))
+                {
                     continue;
+
+                }
+
+                // Use filter
+                if (string.IsNullOrWhiteSpace(filter) == false && DumpLine.Contains(filter) == false)
+                {
+                    continue;
+                }
+
 
                 MemoryDumpDataSet.MemoryDumpTableRow ResultLine = Result.NewMemoryDumpTableRow();
                 try

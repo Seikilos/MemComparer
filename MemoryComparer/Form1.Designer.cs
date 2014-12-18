@@ -35,19 +35,22 @@
             this.txtFirstDump = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtSecondDump = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeltaCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountFactor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalSize1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalSize2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.className2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.className2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalSize2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalSize1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,6 +59,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.joinedMemoryDumpTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoryDumpDataSet)).BeginInit();
@@ -74,7 +78,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Size = new System.Drawing.Size(912, 422);
             this.splitContainer1.SplitterDistance = 285;
             this.splitContainer1.TabIndex = 0;
@@ -150,6 +154,23 @@
             this.txtSecondDump.TextChanged += new System.EventHandler(this.txtSecondDump_TextChanged);
             this.txtSecondDump.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxFilter, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(912, 133);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -167,42 +188,15 @@
             this.totalSize2DataGridViewTextBoxColumn,
             this.mT2DataGridViewTextBoxColumn,
             this.className2DataGridViewTextBoxColumn});
+            this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
             this.dataGridView1.DataSource = this.joinedMemoryDumpTableBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(912, 133);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(906, 102);
+            this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // mT1DataGridViewTextBoxColumn
-            // 
-            this.mT1DataGridViewTextBoxColumn.DataPropertyName = "MT1";
-            this.mT1DataGridViewTextBoxColumn.HeaderText = "MT1";
-            this.mT1DataGridViewTextBoxColumn.Name = "mT1DataGridViewTextBoxColumn";
-            this.mT1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // className1DataGridViewTextBoxColumn
-            // 
-            this.className1DataGridViewTextBoxColumn.DataPropertyName = "ClassName1";
-            this.className1DataGridViewTextBoxColumn.HeaderText = "ClassName1";
-            this.className1DataGridViewTextBoxColumn.Name = "className1DataGridViewTextBoxColumn";
-            this.className1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // count1DataGridViewTextBoxColumn
-            // 
-            this.count1DataGridViewTextBoxColumn.DataPropertyName = "Count1";
-            this.count1DataGridViewTextBoxColumn.HeaderText = "Count1";
-            this.count1DataGridViewTextBoxColumn.Name = "count1DataGridViewTextBoxColumn";
-            this.count1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // count2DataGridViewTextBoxColumn
-            // 
-            this.count2DataGridViewTextBoxColumn.DataPropertyName = "Count2";
-            this.count2DataGridViewTextBoxColumn.HeaderText = "Count2";
-            this.count2DataGridViewTextBoxColumn.Name = "count2DataGridViewTextBoxColumn";
-            this.count2DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // DeltaCount
             // 
@@ -218,36 +212,6 @@
             this.CountFactor.Name = "CountFactor";
             this.CountFactor.ReadOnly = true;
             // 
-            // totalSize1DataGridViewTextBoxColumn
-            // 
-            this.totalSize1DataGridViewTextBoxColumn.DataPropertyName = "TotalSize1";
-            this.totalSize1DataGridViewTextBoxColumn.HeaderText = "TotalSize1";
-            this.totalSize1DataGridViewTextBoxColumn.Name = "totalSize1DataGridViewTextBoxColumn";
-            this.totalSize1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalSize2DataGridViewTextBoxColumn
-            // 
-            this.totalSize2DataGridViewTextBoxColumn.DataPropertyName = "TotalSize2";
-            this.totalSize2DataGridViewTextBoxColumn.HeaderText = "TotalSize2";
-            this.totalSize2DataGridViewTextBoxColumn.Name = "totalSize2DataGridViewTextBoxColumn";
-            this.totalSize2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mT2DataGridViewTextBoxColumn
-            // 
-            this.mT2DataGridViewTextBoxColumn.DataPropertyName = "MT2";
-            this.mT2DataGridViewTextBoxColumn.HeaderText = "MT2";
-            this.mT2DataGridViewTextBoxColumn.Name = "mT2DataGridViewTextBoxColumn";
-            this.mT2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.mT2DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // className2DataGridViewTextBoxColumn
-            // 
-            this.className2DataGridViewTextBoxColumn.DataPropertyName = "ClassName2";
-            this.className2DataGridViewTextBoxColumn.HeaderText = "ClassName2";
-            this.className2DataGridViewTextBoxColumn.Name = "className2DataGridViewTextBoxColumn";
-            this.className2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.className2DataGridViewTextBoxColumn.Visible = false;
-            // 
             // joinedMemoryDumpTableBindingSource
             // 
             this.joinedMemoryDumpTableBindingSource.DataMember = "JoinedMemoryDumpTable";
@@ -257,6 +221,84 @@
             // 
             this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
             this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(43, 3);
+            this.textBoxFilter.MinimumSize = new System.Drawing.Size(200, 0);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(200, 20);
+            this.textBoxFilter.TabIndex = 2;
+            this.textBoxFilter.Text = "DefaultBinder";
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Filter";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // className2DataGridViewTextBoxColumn
+            // 
+            this.className2DataGridViewTextBoxColumn.DataPropertyName = "ClassName2";
+            this.className2DataGridViewTextBoxColumn.HeaderText = "ClassName2";
+            this.className2DataGridViewTextBoxColumn.Name = "className2DataGridViewTextBoxColumn";
+            this.className2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.className2DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // mT2DataGridViewTextBoxColumn
+            // 
+            this.mT2DataGridViewTextBoxColumn.DataPropertyName = "MT2";
+            this.mT2DataGridViewTextBoxColumn.HeaderText = "MT2";
+            this.mT2DataGridViewTextBoxColumn.Name = "mT2DataGridViewTextBoxColumn";
+            this.mT2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.mT2DataGridViewTextBoxColumn.Visible = false;
+            // 
+            // totalSize2DataGridViewTextBoxColumn
+            // 
+            this.totalSize2DataGridViewTextBoxColumn.DataPropertyName = "TotalSize2";
+            this.totalSize2DataGridViewTextBoxColumn.HeaderText = "TotalSize2";
+            this.totalSize2DataGridViewTextBoxColumn.Name = "totalSize2DataGridViewTextBoxColumn";
+            this.totalSize2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalSize1DataGridViewTextBoxColumn
+            // 
+            this.totalSize1DataGridViewTextBoxColumn.DataPropertyName = "TotalSize1";
+            this.totalSize1DataGridViewTextBoxColumn.HeaderText = "TotalSize1";
+            this.totalSize1DataGridViewTextBoxColumn.Name = "totalSize1DataGridViewTextBoxColumn";
+            this.totalSize1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // count2DataGridViewTextBoxColumn
+            // 
+            this.count2DataGridViewTextBoxColumn.DataPropertyName = "Count2";
+            this.count2DataGridViewTextBoxColumn.HeaderText = "Count2";
+            this.count2DataGridViewTextBoxColumn.Name = "count2DataGridViewTextBoxColumn";
+            this.count2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // count1DataGridViewTextBoxColumn
+            // 
+            this.count1DataGridViewTextBoxColumn.DataPropertyName = "Count1";
+            this.count1DataGridViewTextBoxColumn.HeaderText = "Count1";
+            this.count1DataGridViewTextBoxColumn.Name = "count1DataGridViewTextBoxColumn";
+            this.count1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // className1DataGridViewTextBoxColumn
+            // 
+            this.className1DataGridViewTextBoxColumn.DataPropertyName = "ClassName1";
+            this.className1DataGridViewTextBoxColumn.HeaderText = "ClassName1";
+            this.className1DataGridViewTextBoxColumn.Name = "className1DataGridViewTextBoxColumn";
+            this.className1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mT1DataGridViewTextBoxColumn
+            // 
+            this.mT1DataGridViewTextBoxColumn.DataPropertyName = "MT1";
+            this.mT1DataGridViewTextBoxColumn.HeaderText = "MT1";
+            this.mT1DataGridViewTextBoxColumn.Name = "mT1DataGridViewTextBoxColumn";
+            this.mT1DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form1
             // 
@@ -276,6 +318,8 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.joinedMemoryDumpTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoryDumpDataSet)).EndInit();
@@ -288,18 +332,21 @@
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.SplitContainer splitContainer2;
 		private System.Windows.Forms.TextBox txtFirstDump;
-		private System.Windows.Forms.TextBox txtSecondDump;
-		private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtSecondDump;
 		private System.Windows.Forms.BindingSource joinedMemoryDumpTableBindingSource;
 		private MemoryDumpDataSet memoryDumpDataSet;
 		private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeltaCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountFactor;
+        private System.Windows.Forms.TextBox textBoxFilter;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn mT1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn className1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn count1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn count2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DeltaCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CountFactor;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalSize1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalSize2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mT2DataGridViewTextBoxColumn;
