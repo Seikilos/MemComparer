@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,9 @@ namespace LISMemoryComparer
 
                 }
 
-                // Use filter
-                if (string.IsNullOrWhiteSpace(filter) == false && DumpLine.Contains(filter) == false)
+
+                // Use filter, case insensitive
+                if (string.IsNullOrWhiteSpace(filter) == false && DumpLine.IndexOf(filter,StringComparison.CurrentCultureIgnoreCase) == -1)
                 {
                     continue;
                 }
