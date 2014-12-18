@@ -37,20 +37,22 @@
             this.txtSecondDump = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.DeltaCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountFactor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxFilter = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.mT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeltaCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountFactor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSize1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSize2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.className2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
+            this.cbHideSystem = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.joinedMemoryDumpTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoryDumpDataSet)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -156,17 +159,15 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 359F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxFilter, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(912, 133);
             this.tableLayoutPanel1.TabIndex = 2;
@@ -188,48 +189,14 @@
             this.totalSize2DataGridViewTextBoxColumn,
             this.mT2DataGridViewTextBoxColumn,
             this.className2DataGridViewTextBoxColumn});
-            this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
             this.dataGridView1.DataSource = this.joinedMemoryDumpTableBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 35);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(906, 102);
+            this.dataGridView1.Size = new System.Drawing.Size(906, 95);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // DeltaCount
-            // 
-            this.DeltaCount.DataPropertyName = "DeltaCount";
-            this.DeltaCount.HeaderText = "Delta Count";
-            this.DeltaCount.Name = "DeltaCount";
-            this.DeltaCount.ReadOnly = true;
-            // 
-            // CountFactor
-            // 
-            this.CountFactor.DataPropertyName = "CountFactor";
-            this.CountFactor.HeaderText = "CountFactor";
-            this.CountFactor.Name = "CountFactor";
-            this.CountFactor.ReadOnly = true;
-            // 
-            // textBoxFilter
-            // 
-            this.textBoxFilter.Location = new System.Drawing.Point(43, 3);
-            this.textBoxFilter.MinimumSize = new System.Drawing.Size(200, 4);
-            this.textBoxFilter.Name = "textBoxFilter";
-            this.textBoxFilter.Size = new System.Drawing.Size(200, 20);
-            this.textBoxFilter.TabIndex = 2;
-            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Filter";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mT1DataGridViewTextBoxColumn
             // 
@@ -258,6 +225,20 @@
             this.count2DataGridViewTextBoxColumn.HeaderText = "Count2";
             this.count2DataGridViewTextBoxColumn.Name = "count2DataGridViewTextBoxColumn";
             this.count2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DeltaCount
+            // 
+            this.DeltaCount.DataPropertyName = "DeltaCount";
+            this.DeltaCount.HeaderText = "Delta Count";
+            this.DeltaCount.Name = "DeltaCount";
+            this.DeltaCount.ReadOnly = true;
+            // 
+            // CountFactor
+            // 
+            this.CountFactor.DataPropertyName = "CountFactor";
+            this.CountFactor.HeaderText = "CountFactor";
+            this.CountFactor.Name = "CountFactor";
+            this.CountFactor.ReadOnly = true;
             // 
             // totalSize1DataGridViewTextBoxColumn
             // 
@@ -299,6 +280,46 @@
             this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
             this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.textBoxFilter);
+            this.flowLayoutPanel1.Controls.Add(this.cbHideSystem);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(906, 26);
+            this.flowLayoutPanel1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 29);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Filter";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(38, 3);
+            this.textBoxFilter.MinimumSize = new System.Drawing.Size(200, 4);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(200, 20);
+            this.textBoxFilter.TabIndex = 6;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
+            // 
+            // cbHideSystem
+            // 
+            this.cbHideSystem.AutoSize = true;
+            this.cbHideSystem.Location = new System.Drawing.Point(244, 3);
+            this.cbHideSystem.Name = "cbHideSystem";
+            this.cbHideSystem.Size = new System.Drawing.Size(127, 17);
+            this.cbHideSystem.TabIndex = 7;
+            this.cbHideSystem.Text = "Hide System.* Entries";
+            this.cbHideSystem.UseVisualStyleBackColor = true;
+            this.cbHideSystem.CheckedChanged += new System.EventHandler(this.cbHideSystem_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,10 +339,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.joinedMemoryDumpTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoryDumpDataSet)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -340,8 +362,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeltaCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountFactor;
-        private System.Windows.Forms.TextBox textBoxFilter;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn mT1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn className1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn count1DataGridViewTextBoxColumn;
@@ -350,6 +370,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalSize2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mT2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn className2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxFilter;
+        private System.Windows.Forms.CheckBox cbHideSystem;
 	}
 }
 

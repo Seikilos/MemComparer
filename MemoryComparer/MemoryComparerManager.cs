@@ -11,7 +11,7 @@ namespace LISMemoryComparer
     public class MemoryComparerManager
     {
 
-        public static MemoryDumpDataSet.MemoryDumpTableDataTable ConvertMemoryDump(String Name, String[] MemoryDumpLines, string filter = null)
+        public static MemoryDumpDataSet.MemoryDumpTableDataTable ConvertMemoryDump(String Name, String[] MemoryDumpLines, string filter = null, string exclude = null)
         {
             var errors = new List<string>();
             MemoryDumpDataSet.MemoryDumpTableDataTable Result = new MemoryDumpDataSet.MemoryDumpTableDataTable();
@@ -25,6 +25,11 @@ namespace LISMemoryComparer
 
                 }
 
+                // Use exclude
+                if (string.IsNullOrWhiteSpace(exclude) == false && DumpLine.IndexOf(exclude, StringComparison.CurrentCultureIgnoreCase) != -1)
+                {
+                    continue;
+                }
 
                 // Use filter, case insensitive
                 if (string.IsNullOrWhiteSpace(filter) == false && DumpLine.IndexOf(filter,StringComparison.CurrentCultureIgnoreCase) == -1)

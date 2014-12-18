@@ -22,10 +22,12 @@ namespace LISMemoryComparer
 
         private void txtSecondDump_TextChanged(object sender, EventArgs e)
         {
+            var exclude = cbHideSystem.Checked ? "System.":null;
+
             try
             {
-                MemoryDumpDataSet.MemoryDumpTableDataTable FirstDump = MemoryComparerManager.ConvertMemoryDump("First", txtFirstDump.Lines, textBoxFilter.Text);
-                MemoryDumpDataSet.MemoryDumpTableDataTable SecondDump = MemoryComparerManager.ConvertMemoryDump("Second", txtSecondDump.Lines, textBoxFilter.Text);
+                MemoryDumpDataSet.MemoryDumpTableDataTable FirstDump = MemoryComparerManager.ConvertMemoryDump("First", txtFirstDump.Lines, textBoxFilter.Text, exclude );
+                MemoryDumpDataSet.MemoryDumpTableDataTable SecondDump = MemoryComparerManager.ConvertMemoryDump("Second", txtSecondDump.Lines, textBoxFilter.Text, exclude);
 
                 Joined = MemoryComparerManager.Join(FirstDump, SecondDump);
                 joinedMemoryDumpTableBindingSource.DataSource = Joined;
@@ -83,6 +85,12 @@ namespace LISMemoryComparer
         }
 
         private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            // Cause invalidation and re-compare
+            txtSecondDump_TextChanged(null, EventArgs.Empty);
+        }
+
+        private void cbHideSystem_CheckedChanged(object sender, EventArgs e)
         {
             // Cause invalidation and re-compare
             txtSecondDump_TextChanged(null, EventArgs.Empty);
