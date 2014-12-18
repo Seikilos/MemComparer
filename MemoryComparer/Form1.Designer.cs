@@ -39,18 +39,18 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DeltaCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountFactor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
             this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.className2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalSize2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalSize1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalSize1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalSize2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.className2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -212,24 +212,13 @@
             this.CountFactor.Name = "CountFactor";
             this.CountFactor.ReadOnly = true;
             // 
-            // joinedMemoryDumpTableBindingSource
-            // 
-            this.joinedMemoryDumpTableBindingSource.DataMember = "JoinedMemoryDumpTable";
-            this.joinedMemoryDumpTableBindingSource.DataSource = this.memoryDumpDataSet;
-            // 
-            // memoryDumpDataSet
-            // 
-            this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
-            this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // textBoxFilter
             // 
             this.textBoxFilter.Location = new System.Drawing.Point(43, 3);
-            this.textBoxFilter.MinimumSize = new System.Drawing.Size(200, 0);
+            this.textBoxFilter.MinimumSize = new System.Drawing.Size(200, 4);
             this.textBoxFilter.Name = "textBoxFilter";
             this.textBoxFilter.Size = new System.Drawing.Size(200, 20);
             this.textBoxFilter.TabIndex = 2;
-            this.textBoxFilter.Text = "DefaultBinder";
             this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
             // 
             // label1
@@ -242,13 +231,47 @@
             this.label1.Text = "Filter";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // className2DataGridViewTextBoxColumn
+            // mT1DataGridViewTextBoxColumn
             // 
-            this.className2DataGridViewTextBoxColumn.DataPropertyName = "ClassName2";
-            this.className2DataGridViewTextBoxColumn.HeaderText = "ClassName2";
-            this.className2DataGridViewTextBoxColumn.Name = "className2DataGridViewTextBoxColumn";
-            this.className2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.className2DataGridViewTextBoxColumn.Visible = false;
+            this.mT1DataGridViewTextBoxColumn.DataPropertyName = "MT1";
+            this.mT1DataGridViewTextBoxColumn.HeaderText = "MT1";
+            this.mT1DataGridViewTextBoxColumn.Name = "mT1DataGridViewTextBoxColumn";
+            this.mT1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // className1DataGridViewTextBoxColumn
+            // 
+            this.className1DataGridViewTextBoxColumn.DataPropertyName = "ClassName1";
+            this.className1DataGridViewTextBoxColumn.HeaderText = "ClassName1";
+            this.className1DataGridViewTextBoxColumn.Name = "className1DataGridViewTextBoxColumn";
+            this.className1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // count1DataGridViewTextBoxColumn
+            // 
+            this.count1DataGridViewTextBoxColumn.DataPropertyName = "Count1";
+            this.count1DataGridViewTextBoxColumn.HeaderText = "Count1";
+            this.count1DataGridViewTextBoxColumn.Name = "count1DataGridViewTextBoxColumn";
+            this.count1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // count2DataGridViewTextBoxColumn
+            // 
+            this.count2DataGridViewTextBoxColumn.DataPropertyName = "Count2";
+            this.count2DataGridViewTextBoxColumn.HeaderText = "Count2";
+            this.count2DataGridViewTextBoxColumn.Name = "count2DataGridViewTextBoxColumn";
+            this.count2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalSize1DataGridViewTextBoxColumn
+            // 
+            this.totalSize1DataGridViewTextBoxColumn.DataPropertyName = "TotalSize1";
+            this.totalSize1DataGridViewTextBoxColumn.HeaderText = "TotalSize1";
+            this.totalSize1DataGridViewTextBoxColumn.Name = "totalSize1DataGridViewTextBoxColumn";
+            this.totalSize1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalSize2DataGridViewTextBoxColumn
+            // 
+            this.totalSize2DataGridViewTextBoxColumn.DataPropertyName = "TotalSize2";
+            this.totalSize2DataGridViewTextBoxColumn.HeaderText = "TotalSize2";
+            this.totalSize2DataGridViewTextBoxColumn.Name = "totalSize2DataGridViewTextBoxColumn";
+            this.totalSize2DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // mT2DataGridViewTextBoxColumn
             // 
@@ -258,47 +281,23 @@
             this.mT2DataGridViewTextBoxColumn.ReadOnly = true;
             this.mT2DataGridViewTextBoxColumn.Visible = false;
             // 
-            // totalSize2DataGridViewTextBoxColumn
+            // className2DataGridViewTextBoxColumn
             // 
-            this.totalSize2DataGridViewTextBoxColumn.DataPropertyName = "TotalSize2";
-            this.totalSize2DataGridViewTextBoxColumn.HeaderText = "TotalSize2";
-            this.totalSize2DataGridViewTextBoxColumn.Name = "totalSize2DataGridViewTextBoxColumn";
-            this.totalSize2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.className2DataGridViewTextBoxColumn.DataPropertyName = "ClassName2";
+            this.className2DataGridViewTextBoxColumn.HeaderText = "ClassName2";
+            this.className2DataGridViewTextBoxColumn.Name = "className2DataGridViewTextBoxColumn";
+            this.className2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.className2DataGridViewTextBoxColumn.Visible = false;
             // 
-            // totalSize1DataGridViewTextBoxColumn
+            // joinedMemoryDumpTableBindingSource
             // 
-            this.totalSize1DataGridViewTextBoxColumn.DataPropertyName = "TotalSize1";
-            this.totalSize1DataGridViewTextBoxColumn.HeaderText = "TotalSize1";
-            this.totalSize1DataGridViewTextBoxColumn.Name = "totalSize1DataGridViewTextBoxColumn";
-            this.totalSize1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.joinedMemoryDumpTableBindingSource.DataMember = "JoinedMemoryDumpTable";
+            this.joinedMemoryDumpTableBindingSource.DataSource = this.memoryDumpDataSet;
             // 
-            // count2DataGridViewTextBoxColumn
+            // memoryDumpDataSet
             // 
-            this.count2DataGridViewTextBoxColumn.DataPropertyName = "Count2";
-            this.count2DataGridViewTextBoxColumn.HeaderText = "Count2";
-            this.count2DataGridViewTextBoxColumn.Name = "count2DataGridViewTextBoxColumn";
-            this.count2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // count1DataGridViewTextBoxColumn
-            // 
-            this.count1DataGridViewTextBoxColumn.DataPropertyName = "Count1";
-            this.count1DataGridViewTextBoxColumn.HeaderText = "Count1";
-            this.count1DataGridViewTextBoxColumn.Name = "count1DataGridViewTextBoxColumn";
-            this.count1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // className1DataGridViewTextBoxColumn
-            // 
-            this.className1DataGridViewTextBoxColumn.DataPropertyName = "ClassName1";
-            this.className1DataGridViewTextBoxColumn.HeaderText = "ClassName1";
-            this.className1DataGridViewTextBoxColumn.Name = "className1DataGridViewTextBoxColumn";
-            this.className1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mT1DataGridViewTextBoxColumn
-            // 
-            this.mT1DataGridViewTextBoxColumn.DataPropertyName = "MT1";
-            this.mT1DataGridViewTextBoxColumn.HeaderText = "MT1";
-            this.mT1DataGridViewTextBoxColumn.Name = "mT1DataGridViewTextBoxColumn";
-            this.mT1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
+            this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Form1
             // 
