@@ -10,8 +10,14 @@ namespace LISMemoryComparer
 {
     public class MemoryComparerManager
     {
-
-        public static MemoryDumpDataSet.MemoryDumpTableDataTable ConvertMemoryDump(String Name, String[] MemoryDumpLines, string filter = null, string exclude = null)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="MemoryDumpLines"></param>
+        /// <param name="matchFilter">If returns true, only this entry will be used</param>
+        /// <returns></returns>
+        public static MemoryDumpDataSet.MemoryDumpTableDataTable ConvertMemoryDump(String Name, String[] MemoryDumpLines, Func<MemoryDumpDataSet.MemoryDumpTableRow, bool> matchFilter = null)
         {
             var errors = new List<string>();
             MemoryDumpDataSet.MemoryDumpTableDataTable Result = new MemoryDumpDataSet.MemoryDumpTableDataTable();
@@ -25,19 +31,6 @@ namespace LISMemoryComparer
 
                 }
 
-                // Use exclude
-                if (string.IsNullOrWhiteSpace(exclude) == false && DumpLine.IndexOf(exclude, StringComparison.CurrentCultureIgnoreCase) != -1)
-                {
-                    continue;
-                }
-
-                // Use filter, case insensitive
-                if (string.IsNullOrWhiteSpace(filter) == false && DumpLine.IndexOf(filter,StringComparison.CurrentCultureIgnoreCase) == -1)
-                {
-                    continue;
-                }
-
-
                 MemoryDumpDataSet.MemoryDumpTableRow ResultLine = Result.NewMemoryDumpTableRow();
                 try
                 {
@@ -48,6 +41,14 @@ namespace LISMemoryComparer
                     errors.Add(string.Format("Parsing line '{0}' failed with '{1}'", DumpLine, e.Message));
                     continue;
                 }
+               
+                // Use matchFilter
+                if (matchFilter != null && matchFilter(ResultLine) == false)
+                {
+                    continue;
+                }
+
+
                 Result.Rows.Add(ResultLine);
             }
 

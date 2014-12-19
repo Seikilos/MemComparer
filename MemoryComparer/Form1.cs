@@ -22,12 +22,25 @@ namespace LISMemoryComparer
 
         private void txtSecondDump_TextChanged(object sender, EventArgs e)
         {
-            var exclude = cbHideSystem.Checked ? "System.":null;
+            Func<MemoryDumpDataSet.MemoryDumpTableRow, bool> filter = s =>
+                {
+                    // This is the early exist
+                    if (cbHideSystem.Checked && s.ClassName.StartsWith("System."))
+                    {
+                        return false;
+                    }
+                    // Use filter, case insensitive
+                    if (string.IsNullOrWhiteSpace(textBoxFilter.Text) == false && s.ClassName.IndexOf(textBoxFilter.Text, StringComparison.CurrentCultureIgnoreCase) == -1)
+                    {
+                        return false;
+                    }
+                    return true;
+                };
 
             try
             {
-                MemoryDumpDataSet.MemoryDumpTableDataTable FirstDump = MemoryComparerManager.ConvertMemoryDump("First", txtFirstDump.Lines, textBoxFilter.Text, exclude );
-                MemoryDumpDataSet.MemoryDumpTableDataTable SecondDump = MemoryComparerManager.ConvertMemoryDump("Second", txtSecondDump.Lines, textBoxFilter.Text, exclude);
+                MemoryDumpDataSet.MemoryDumpTableDataTable FirstDump = MemoryComparerManager.ConvertMemoryDump("First", txtFirstDump.Lines,filter );
+                MemoryDumpDataSet.MemoryDumpTableDataTable SecondDump = MemoryComparerManager.ConvertMemoryDump("Second", txtSecondDump.Lines, filter);
 
                 Joined = MemoryComparerManager.Join(FirstDump, SecondDump);
                 joinedMemoryDumpTableBindingSource.DataSource = Joined;
