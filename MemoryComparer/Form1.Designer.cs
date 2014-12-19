@@ -36,6 +36,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtSecondDump = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
+            this.cbHideSystem = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.className1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,10 +53,6 @@
             this.className2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.joinedMemoryDumpTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memoryDumpDataSet = new LISMemoryComparer.MemoryDumpDataSet();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxFilter = new System.Windows.Forms.TextBox();
-            this.cbHideSystem = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,10 +62,10 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.joinedMemoryDumpTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoryDumpDataSet)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -171,6 +171,46 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(912, 133);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.textBoxFilter);
+            this.flowLayoutPanel1.Controls.Add(this.cbHideSystem);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(906, 26);
+            this.flowLayoutPanel1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 29);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Filter";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(38, 3);
+            this.textBoxFilter.MinimumSize = new System.Drawing.Size(200, 4);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(200, 20);
+            this.textBoxFilter.TabIndex = 6;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
+            // 
+            // cbHideSystem
+            // 
+            this.cbHideSystem.AutoSize = true;
+            this.cbHideSystem.Location = new System.Drawing.Point(244, 3);
+            this.cbHideSystem.Name = "cbHideSystem";
+            this.cbHideSystem.Size = new System.Drawing.Size(189, 17);
+            this.cbHideSystem.TabIndex = 7;
+            this.cbHideSystem.Text = "Hide Microsoft Namespace Entries";
+            this.cbHideSystem.UseVisualStyleBackColor = true;
+            this.cbHideSystem.CheckedChanged += new System.EventHandler(this.cbHideSystem_CheckedChanged);
             // 
             // dataGridView1
             // 
@@ -280,46 +320,6 @@
             this.memoryDumpDataSet.DataSetName = "MemoryDumpDataSet";
             this.memoryDumpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.textBoxFilter);
-            this.flowLayoutPanel1.Controls.Add(this.cbHideSystem);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(906, 26);
-            this.flowLayoutPanel1.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 29);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Filter";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxFilter
-            // 
-            this.textBoxFilter.Location = new System.Drawing.Point(38, 3);
-            this.textBoxFilter.MinimumSize = new System.Drawing.Size(200, 4);
-            this.textBoxFilter.Name = "textBoxFilter";
-            this.textBoxFilter.Size = new System.Drawing.Size(200, 20);
-            this.textBoxFilter.TabIndex = 6;
-            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
-            // 
-            // cbHideSystem
-            // 
-            this.cbHideSystem.AutoSize = true;
-            this.cbHideSystem.Location = new System.Drawing.Point(244, 3);
-            this.cbHideSystem.Name = "cbHideSystem";
-            this.cbHideSystem.Size = new System.Drawing.Size(127, 17);
-            this.cbHideSystem.TabIndex = 7;
-            this.cbHideSystem.Text = "Hide System.* Entries";
-            this.cbHideSystem.UseVisualStyleBackColor = true;
-            this.cbHideSystem.CheckedChanged += new System.EventHandler(this.cbHideSystem_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,11 +339,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.joinedMemoryDumpTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoryDumpDataSet)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
