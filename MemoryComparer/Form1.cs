@@ -22,10 +22,20 @@ namespace LISMemoryComparer
 
         private void txtSecondDump_TextChanged(object sender, EventArgs e)
         {
+            var msInterals = new List<string>
+                {
+                    "System.",
+                    "MS.",
+                    "<CppImplementation",
+                    "Microsoft",
+                    "__type_info_node",
+                    "__DynamicallyInvokableAttribute",
+                    "<CrtImplementationDetails",
+                };
             Func<MemoryDumpDataSet.MemoryDumpTableRow, bool> filter = s =>
                 {
                     // This is the early exist
-                    if (cbHideSystem.Checked && s.ClassName.StartsWith("System."))
+                    if (cbHideSystem.Checked && msInterals.Any(i => s.ClassName.Contains(i)))
                     {
                         return false;
                     }

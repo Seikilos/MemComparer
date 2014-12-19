@@ -104,7 +104,7 @@ namespace LISMemoryComparer
 
             if (Columns == null)
             {
-                return;
+                throw new Exception("Columns could not be parsed");
             }
 
             for (int ColIndex = 0; ColIndex < Columns.Length; ColIndex++)
